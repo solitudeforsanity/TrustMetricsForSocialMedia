@@ -1,0 +1,91 @@
+\part{Model Theory}
+\chapter{Logistic Regression}
+
+\section{Background }
+
+{In the early 19th Century[1], Probit Analysis was widely used in academia and in the Industry. As time went by, the Probit Model which is closely related to the Logit Model became less popular and the latter gained popularity. The Logit Model forms the basis of Logistic Regression. Logistic Regression is a widely used and important Linear Machine Learning model. By Linear we mean we take inputs and compute a signal that is a linear combination of the inputs with weights. Although poorly named Logistic Regression, it is essentially a probabilistic classification algorithm and it builds the foundation for more complex methods like Neural networks. Logistic Regression can be used for binary classification and can be extended to multi class classification, however we will specifically look at the algorithm for binary classification since our problem is binary. In the next few pages we will look at how our algorithm works and the underlying logic behind it.}
+
+\section{Derivation}
+$\mathbf{Problem}$ : Trust Worthiness of tweets posted on Twitter.\\*
+$\mathbf{Structure}$ : Our data is a collection of $x$ and $y$ data points where $x_i$ is a $d$ dimensional vector and $y$ is a True or False classification\\*
+\centerline{$D = ((x_1,y_1),..,(x_n,y_n)) , x_i \in \mathbb{R}^d$  and  $y_i \in {0,1}$}
+$\mathbf{Input}$ : $x_1$ = FrequencyOfTweets, $x_2$ = FavouriteCount, $x_3$ = RetweetCount, $x_4$ = InReplyToStatusID, $x_5$ = InReplyToUserID, $x_6$ = Hashtags, $x_7$ = UserMentionID, $x_8$ = URL, $x_9$ = MediaURL, $x_{10}$ = MediaType, $x_{11}$ = PossiblySensitive, $x_{12}$ = Language, $x_{13}$ = TweetLength , $x_{14}$ = Location, $x_{15}$ = Description $x_{16}$ = UserAccountURL, $x_{17}$ = Protected, $x_{18}$ = FollowersCount, $x_{19}$ = FriendsCount, $x_{20}$ = ListedCount, $x_{21}$ = FavouritesCount, $x_{22}$ = Verified, $x_{23}$ = GeoEnabled, $x_{24}$ = StatusesCount, $x_{25}$ = ProfileBackgroundImageURL, $x_{26}$ = ProfileUseBackgroundImage, $x_{27}$ = DefaultProfile, $x_{28}$ = IsItARetweet\\*\\*
+$\mathbf{Model}$ :  Logistic Regression is a discriminative model and we want to model the probability of the information being trustworthy, given some data about the tweets. We write $y_i$ as a Bernouli Random variable with probability $\sigma(w^Tx_i)$ where each of the $y_i$'s are independent. The $w$ here is the parameter and the $x_i$ are fixed and non random. We give weights to each of the variables to get a linear combination. \\*
+\centerline{$w_0 + w_1x_1 + w_2x_2 + ... + w_ix_i = w^TX$ where $X = (1,x_1,x_2,x_3)$} \\*
+Here the coefficient W tells us something about how the individual variables are affecting the probability. For instance if W is negative then the probability decreases when the variable increases in value and vice versa. The coefficients also tell us which variables are more influential than the others. A large coefficient regardless of whether it's positive or negative influences the decision more thanks a small coefficient. \\*
+
+Let us say that the probability of the the tweet being trustworthy is $P$. Then the probability of the tweet not being trustworthy is $1-P$.
+
+The odds ratio then is : P / 1 - P 
+We now take the natural logarithm of this : ln (P / 1-P)
+ln (P / 1 - P ) = $w^Tx$
+Now if we take the exponent on both sides we get 
+P / 1 - P = $e^{w^Tx}$
+P = (1 - P)*$e^{w^Tx}$
+P = $e^{w^Tx}$ - P*$e^{w^Tx}$
+P + P*$e^{w^Tx}$ = $e^{w^Tx}$
+P(1 + $e^{w^Tx}$) = $e^{w^Tx}$
+P = $e^{w^Tx}$ / (1 + $e^{w^Tx}$)
+In this equation on the R.H.S if $e^{w^Tx}$ tends to +infinity numerator in the formula below will be very huge and so will the denominator and the ratio will be close to 1. If $e^{w^Tx}$ tends to -infinity both numerator and denominator would be very small and be close to 0. If $e^{w^Tx}$ is 0 then $\sigma(e^{w^Tx})$ = 1/2. 
+Multiplying the R.H.S by  $e^{-w^Tx}$ we get 
+P = 1 / 1 + $e^{w^Tx}$
+
+(Draw a sigmoid function in 28). 
+
+$0 <= \sigma(e^{w^Tx}) <= 1$
+Logistic Function : $\sigma(w^Tx) = 1 / 1 + e-w^Tx$\\*
+
+The Target Function f : $R^d$ -> [0,1]
+$P(y|x) = \{f(x) for y=+1, 1 - f(x) for y=-1\}$	\\*
+
+Our final hypothesis which we call h(x) is what we need to learn, which has the form of logistic regression,  and we would claim that this is approximately equal to f(x). So we basically get the weights, multiply it with x and pass it through the non-linearity and make sure that it reflects f(x) as closely as possible. Our aim is to make this as close as possible, and what we can change here is our parameter which is W. So in other words, we know f(x), we chose Ws to give us h(x) which closely resembles f(x). 
+
+$h(x) = \sigma(wTx) =approx f(x)$\\*
+
+$\mathbf{Maximum Likelihood Estimate}$[14] : Given below is how we compute the Maximum likelihood estimation for the Logistic Regression Model, for our binary scenario.\\*
+W = Parameter \\*
+D = Data\\*
+$W_{MLE}$ = Maximum Likelihood estimate for our parameter w\\*
+$P(D|w)$ = Probability of the Data given w\\*
+$P(y|x)$ = Probability of y given x
+
+$W_{MLE}$ $\in argmax$  $P(D|w)$\\*
+
+$P(D|w)$ = $\prod_i=1^n P(y_i|x_i,w)$ \\*
+We can write the probability mass function of a bernouli as : 
+= $\prod_i=1^n \sigma(w^Tx)^{y_i}(1-w^Tx)^(1-y_i)$
+To get the Maximum likelihood estimate we would want to maximise P(D|w). We can now take the log of P(D|w) and maximise this or minimise - log P(D|w). 
+L(w) = - log P(D|w) = - sum i=1 to n $y_i$ log $W^Tx$ + (1-$y_i$)log(1-$W^Tx$)
+We need to take the gradient with respect to W of sum i=1 to n $y_i$ log $W^Tx_i$ + (1-$y_i$)log(1-$W^Tx_i$). 
+derivative log sigma(W^Tx) 
+
+
+
+
+A brief comparison of Logistic Regression with some other classification models are given below : 
+
+Linear classification: 
+
+We take our hypothesis to be a decision, and this decision (+/- 1) is a direct result of signal. In the following diagram our inputs are x1?xd where X(dash on top) is a d dimensional vector and we sum it and pass it through the following threshold to get a decision. Insert Diag 1 
+
+Linear Regression 
+
+In the case of Linear Regression we do nothing to the signal. Here we output what we input, the input being the sum of vectors x1..xd. Insert Diag 1
+
+Logistic Regression 
+
+In Logistic regression we will take our sum and apply a non-linearity to it. Here theta the logistic function is not as harsh as the Linear Classification and the output would be interpreted as a probability. Again in our diagram we have a d dimensional vector x and the sum is passed through this function to give us a probability.  insert Diag 1
+
+
+Pros : 
+
+1.Small number of parameters : In the above the number of parameters would be (d+1). What this means is that even if the dimensions increase, the number of parameters only linearly increases. 
+2.This model is Computationally efficient to estimate the w parameter. We use Newtons method  
+      which is a very efficient second order method which is guaranteed to converge to a Maximum    Likelihood estimate. 
+3. You can extend it to multi class classification
+4. Forms the foundation for some of the more complex methods like neural networks.
+
+Cons : 
+Performance is not necessarily as good as some of the best performing methods such as random forests, boosted methods and support vector machines. This however, greatly depends on the nature of the problem and from what we can see this has performed quite well for our problem. 
+
+Foot Note : 1The MLE proof stems from some notes from reference[14]
