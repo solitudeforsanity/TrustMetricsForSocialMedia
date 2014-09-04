@@ -1,91 +1,45 @@
-\part{Model Theory}
-\chapter{Logistic Regression}
+\part{Contributions}
+\chapter{Approach to the Problem}
+In this chapter, we detail our scope and approach to the Trustworthiness assessment problem, along with the assumptions we made. Our aim is to develop a Machine Learning model that determines the Trustworthiness factor of a tweet to a reasonable level of accuracy. In the next section we scope our problem, and provide justifications for the chosen platform.   
+\section{Methodology}
+\subsection{Scope}
+The focus of our research is assessing the trustworthiness of information published via by social media. As explained in Section 1, Social Media Networks vary greatly in terms of how they are used as well as the purpose the platform serves. Considering this fact a broad solution would not be practical or appropriate. We considered the different types of social media platforms available, the previous research conducted on each of these networks and the developments made. From this, we concluded that Twitter was the best platform to work with. Specific reasons are outlined below : 
+\begin{itemize}
+\item Twitter is a simple and yet powerful platform and is used widely and regularly by millions of people around the world. 
+\item The fact that unlike some of the other social media platforms, Twitter feeds are most often public, hence reaching a wider audience. This would be useful in two ways. One of which is the fact that because the reach is wide spread our research would make more sense. The other is that, since most tweets are public, it would be much more easily accessible for our research. 
+\item The well developed, documented and relatively open Application Programming Interface(API) which would be used to retrieve Twitter feeds and features. 
+\item The restricted form of text, i.e the 140 characters allowed in a Twitter post, provides us with a solid structure to work with which would make it easier for comparison of tweets.
+\item In the Facebook Vs Twitter debate, Twitter was the clear winner since Facebook is built on the idea of connecting friends while twitter is designed for people from all over the world who haven't met to carry on a global conversation\cite{22}. This closely aligned with our research goals hence the choice. 
+\end{itemize}
+We limit our scope to Twitter such that we have a specific platform and problem to deal with. 
+\section{Approach Detailed}
 
-\section{Background }
+\begin{tikzpicture}[node distance=0cm]
 
-{In the early 19th Century[1], Probit Analysis was widely used in academia and in the Industry. As time went by, the Probit Model which is closely related to the Logit Model became less popular and the latter gained popularity. The Logit Model forms the basis of Logistic Regression. Logistic Regression is a widely used and important Linear Machine Learning model. By Linear we mean we take inputs and compute a signal that is a linear combination of the inputs with weights. Although poorly named Logistic Regression, it is essentially a probabilistic classification algorithm and it builds the foundation for more complex methods like Neural networks. Logistic Regression can be used for binary classification and can be extended to multi class classification, however we will specifically look at the algorithm for binary classification since our problem is binary. In the next few pages we will look at how our algorithm works and the underlying logic behind it.}
+\node (step1) [startstop, text width=4cm] {STEP 1 : Defining and Gathering Trustworthy + Untrustworthy data};
+\node (step2) [startstop, right of=step1, xshift=5.5cm, text width=4cm] {STEP 2 : Data formatting and Storage };
+\node (step3) [startstop, right of=step2, xshift=5.5cm, text width=4cm] {STEP 3 : Extracting / Identifying features of the Data  };
+\node (step4) [startstop, below of=step2, text width=6cm, yshift=-4.2cm] {STEP 4 : Applying Machine Learning to the gathered data and using the data and identified features to train the Supervised Machine Learning model };
+\node (step5) [startstop, left of=step4, below of=step1, text width=4cm, yshift=-8.5cm] {STEP 5 : Internal testing of created model to see if it can use features of data to predict Trustworthiness or Untrustworthiness };
+\node (step6) [startstop, right of=step5, xshift=5.5cm, text width=4cm] {STEP 6 : Gathering new data of Trustworthy and Untrustworthy tweets };
+\node (step7) [startstop, right of=step6, xshift=5.5cm, text width=4cm] {STEP 7 : Evaluating model ability to accurately predict };
+\draw [arrow] (step1) -- (step2);
+\draw [arrow] (step2) -- (step3);
+\draw [arrow] (step3) -- (step4);
+\draw [arrow] (step4) -- (step5);
+\draw [arrow] (step5) -- (step6);
+\draw [arrow] (step6) -- (step7);
+\end{tikzpicture}
 
-\section{Derivation}
-$\mathbf{Problem}$ : Trust Worthiness of tweets posted on Twitter.\\*
-$\mathbf{Structure}$ : Our data is a collection of $x$ and $y$ data points where $x_i$ is a $d$ dimensional vector and $y$ is a True or False classification\\*
-\centerline{$D = ((x_1,y_1),..,(x_n,y_n)) , x_i \in \mathbb{R}^d$  and  $y_i \in {0,1}$}
-$\mathbf{Input}$ : $x_1$ = FrequencyOfTweets, $x_2$ = FavouriteCount, $x_3$ = RetweetCount, $x_4$ = InReplyToStatusID, $x_5$ = InReplyToUserID, $x_6$ = Hashtags, $x_7$ = UserMentionID, $x_8$ = URL, $x_9$ = MediaURL, $x_{10}$ = MediaType, $x_{11}$ = PossiblySensitive, $x_{12}$ = Language, $x_{13}$ = TweetLength , $x_{14}$ = Location, $x_{15}$ = Description $x_{16}$ = UserAccountURL, $x_{17}$ = Protected, $x_{18}$ = FollowersCount, $x_{19}$ = FriendsCount, $x_{20}$ = ListedCount, $x_{21}$ = FavouritesCount, $x_{22}$ = Verified, $x_{23}$ = GeoEnabled, $x_{24}$ = StatusesCount, $x_{25}$ = ProfileBackgroundImageURL, $x_{26}$ = ProfileUseBackgroundImage, $x_{27}$ = DefaultProfile, $x_{28}$ = IsItARetweet\\*\\*
-$\mathbf{Model}$ :  Logistic Regression is a discriminative model and we want to model the probability of the information being trustworthy, given some data about the tweets. We write $y_i$ as a Bernouli Random variable with probability $\sigma(w^Tx_i)$ where each of the $y_i$'s are independent. The $w$ here is the parameter and the $x_i$ are fixed and non random. We give weights to each of the variables to get a linear combination. \\*
-\centerline{$w_0 + w_1x_1 + w_2x_2 + ... + w_ix_i = w^TX$ where $X = (1,x_1,x_2,x_3)$} \\*
-Here the coefficient W tells us something about how the individual variables are affecting the probability. For instance if W is negative then the probability decreases when the variable increases in value and vice versa. The coefficients also tell us which variables are more influential than the others. A large coefficient regardless of whether it's positive or negative influences the decision more thanks a small coefficient. \\*
-
-Let us say that the probability of the the tweet being trustworthy is $P$. Then the probability of the tweet not being trustworthy is $1-P$.
-
-The odds ratio then is : P / 1 - P 
-We now take the natural logarithm of this : ln (P / 1-P)
-ln (P / 1 - P ) = $w^Tx$
-Now if we take the exponent on both sides we get 
-P / 1 - P = $e^{w^Tx}$
-P = (1 - P)*$e^{w^Tx}$
-P = $e^{w^Tx}$ - P*$e^{w^Tx}$
-P + P*$e^{w^Tx}$ = $e^{w^Tx}$
-P(1 + $e^{w^Tx}$) = $e^{w^Tx}$
-P = $e^{w^Tx}$ / (1 + $e^{w^Tx}$)
-In this equation on the R.H.S if $e^{w^Tx}$ tends to +infinity numerator in the formula below will be very huge and so will the denominator and the ratio will be close to 1. If $e^{w^Tx}$ tends to -infinity both numerator and denominator would be very small and be close to 0. If $e^{w^Tx}$ is 0 then $\sigma(e^{w^Tx})$ = 1/2. 
-Multiplying the R.H.S by  $e^{-w^Tx}$ we get 
-P = 1 / 1 + $e^{w^Tx}$
-
-(Draw a sigmoid function in 28). 
-
-$0 <= \sigma(e^{w^Tx}) <= 1$
-Logistic Function : $\sigma(w^Tx) = 1 / 1 + e-w^Tx$\\*
-
-The Target Function f : $R^d$ -> [0,1]
-$P(y|x) = \{f(x) for y=+1, 1 - f(x) for y=-1\}$	\\*
-
-Our final hypothesis which we call h(x) is what we need to learn, which has the form of logistic regression,  and we would claim that this is approximately equal to f(x). So we basically get the weights, multiply it with x and pass it through the non-linearity and make sure that it reflects f(x) as closely as possible. Our aim is to make this as close as possible, and what we can change here is our parameter which is W. So in other words, we know f(x), we chose Ws to give us h(x) which closely resembles f(x). 
-
-$h(x) = \sigma(wTx) =approx f(x)$\\*
-
-$\mathbf{Maximum Likelihood Estimate}$[14] : Given below is how we compute the Maximum likelihood estimation for the Logistic Regression Model, for our binary scenario.\\*
-W = Parameter \\*
-D = Data\\*
-$W_{MLE}$ = Maximum Likelihood estimate for our parameter w\\*
-$P(D|w)$ = Probability of the Data given w\\*
-$P(y|x)$ = Probability of y given x
-
-$W_{MLE}$ $\in argmax$  $P(D|w)$\\*
-
-$P(D|w)$ = $\prod_i=1^n P(y_i|x_i,w)$ \\*
-We can write the probability mass function of a bernouli as : 
-= $\prod_i=1^n \sigma(w^Tx)^{y_i}(1-w^Tx)^(1-y_i)$
-To get the Maximum likelihood estimate we would want to maximise P(D|w). We can now take the log of P(D|w) and maximise this or minimise - log P(D|w). 
-L(w) = - log P(D|w) = - sum i=1 to n $y_i$ log $W^Tx$ + (1-$y_i$)log(1-$W^Tx$)
-We need to take the gradient with respect to W of sum i=1 to n $y_i$ log $W^Tx_i$ + (1-$y_i$)log(1-$W^Tx_i$). 
-derivative log sigma(W^Tx) 
-
-
-
-
-A brief comparison of Logistic Regression with some other classification models are given below : 
-
-Linear classification: 
-
-We take our hypothesis to be a decision, and this decision (+/- 1) is a direct result of signal. In the following diagram our inputs are x1?xd where X(dash on top) is a d dimensional vector and we sum it and pass it through the following threshold to get a decision. Insert Diag 1 
-
-Linear Regression 
-
-In the case of Linear Regression we do nothing to the signal. Here we output what we input, the input being the sum of vectors x1..xd. Insert Diag 1
-
-Logistic Regression 
-
-In Logistic regression we will take our sum and apply a non-linearity to it. Here theta the logistic function is not as harsh as the Linear Classification and the output would be interpreted as a probability. Again in our diagram we have a d dimensional vector x and the sum is passed through this function to give us a probability.  insert Diag 1
-
-
-Pros : 
-
-1.Small number of parameters : In the above the number of parameters would be (d+1). What this means is that even if the dimensions increase, the number of parameters only linearly increases. 
-2.This model is Computationally efficient to estimate the w parameter. We use Newtons method  
-      which is a very efficient second order method which is guaranteed to converge to a Maximum    Likelihood estimate. 
-3. You can extend it to multi class classification
-4. Forms the foundation for some of the more complex methods like neural networks.
-
-Cons : 
-Performance is not necessarily as good as some of the best performing methods such as random forests, boosted methods and support vector machines. This however, greatly depends on the nature of the problem and from what we can see this has performed quite well for our problem. 
-
-Foot Note : 1The MLE proof stems from some notes from reference[14]
+Once we defined the scope, our next task was exploring whether using news agency tweets to learn from, for trustworthiness prediction was a good solution or not. 
+We assumed that Tweets by News agencies would be trustworthy. We selected 20 popular news Twitter feeds from which we collected tweets. The News Websites are : The Independent, New York Times, The Guardian, The Economist, USA Today, Bloomberg News, Associate Press, MSNBC, Forbes, The Financial Times, BBC World, Times of India, Reuters, Wall Street Journal, CNET, CBSNews, Huffington Post, The Daily Telegraph, CNN and ABC. We restricted the trustworthy news websites to the English speaking world, for simplicity in analysis.\\*\\*
+Our next task was identifying untrustworthy tweets.  Our second assumption is that known fake accounts are Untrustworthy. This task was slightly more difficult than the previous since, finding many known, Untrustworthy Twitter feeds proved harder. However, we used some of the fake Twitter websites which post Untrustworthy information for our bad tweets. These untrustworthy websites were suggested by \cite{23} and \cite{24} and we manually verified a subset of the tweets. The following Twitter pages were classified as Untrustworthy : PrinceTweets2u, Jesus\_M\_Christ, SeinfeldToday, FakeYahooNews, newsthump, notzuckerberg, NotSportsCenter, FakeAPStyleBook, TomHankThatsMe, NYOnIt, TheFakeCNN, BBCSporf, feinisttswift, TheOnion, Kimkierkegaard, SadPaulGiamatti, NotCoatFactory, FakeSteranko, Bill\_Nye\_Tho, Seinfeld2000, PinterestFake, TheFakeESPN, BBCMews, FakeSTCom. \\*\\* An example of the Untrustworthy tweet gathered is given below : \\*\\*
+\centerline{\textit{``The Queen reportedly fuming that Fathers4Justice have made it onto}} 
+\centerline{\textit{the palace roof and then have the audacity to sing?badly. More to follow.''}}\leavevmode \\\\
+STEP 1 : Once we decided the Twitter profiles that we would use for data collection we set about collecting the data using our own code which interfaced with the Twitter API. 
+STEP 2 : The next task was formatting the data for our requirements. The next chapter provides more detail on data collection and manipulation. 
+STEP 3 : We then had to extract features that we would need to pass on to the Machine Learning model. We had to chose these features based on how helpful these features would be for our classification task. For this, our background reading and literature review helped in order to weed out factors and features that may not be important to the ones that might be important.
+STEP 4 :  We train and test using our original dataset on three different machine learning models, namely Support Vector Machines\footnote{see Section 5.3}, Logistic Regression\footnote{see Section 5.2} and Random Forests\footnote{see Section 5.4} and measure the accuracy rate. More details on the Machine Learning models and Experiment are given in the following chapters. 
+STEP 5 : We now train and test our data each time tweaking some features or the parameters passed into the Machine Learning models to receive a positive prediction score. 
+STEP 6 : We gather more data for our external testing. This is done by handpicking known Trustworthy and Untrustworthy data. Trustworthy data was news Twitter pages that have not been used in the analysis before and Untrustworthy tweets were tweets that were posted during crisis situations which later papers condemn or mention and deem Untrustworthy. 
+STEP 7 : We then chose the best method and feed in some raw data, that the model would have not seen before, for it to determine the Classification of the tweets. The following chapters elaborate on this. \\*\\*

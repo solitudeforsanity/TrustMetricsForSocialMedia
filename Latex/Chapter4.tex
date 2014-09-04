@@ -1,1 +1,199 @@
-\chapter{Support Vector Machines}
+\chapter{Data Collection and Feature Selection}
+\section{Data Collection}
+\subsection{Training and Testing}
+Data retrieval for this project was from the twitter API which is located at \url{https://dev.twitter.com}.  Twitter has many APIs, each API representing a facet of twitter. They are Twitter for websites, Search API, REST API and Streaming API. The Twitter REST API was used for this specific task.\\*\\*
+Initially you are required to set up an account and a password after which you will receive an AccessToken, AccessSecret, ConsumerKey and ConsumerSecret which would then be needed to authenticate you to use the API. You make restful calls using the above credentials. The call
+`GET statuses/user\_timeline' returns a collection of tweets posted by the user, who is identified by the user ID or screen name parameters provided. If the account is protected, you may receive tweets only if your user account has been approved by the user or if you are the user himself. 
+For example the following call would retrieve the last 200 tweets by the Twitter User named BreakingNews. Various different parameter combinations can be set to retrieve a subset of the necessary data. 
+\url{https://api.twitter.com/1.1/statuses/user\_timeline.json?screen\_name=BreakingNews&include_entities=true&include_rts=true&count=200}
+The above call gives us only the tweets by the user, and doesn't necessarily give us a lot of information on the user itself. For this we look up the user details with the following request.  
+\url{https://api.twitter.com/1.1/users/lookup.json?screen\_name=Independent}
+This would give us the User Information of the user who's screen name is the Independent. 
+Once data is received this way, we store the last ID for each user in the dataset, such that we then make the next call using the last ID. The data is received in JSON Format, which is then slightly modified to fit our needs and then converted to CSV format to pass on to our Machine Learning algorithm. 
+We used twenty widely popular News Websites such as the Guardian, BBC, CNN etc and found around twenty five fake accounts to retrieve untrustworthy data. We have a dataset with about 20,000 tweets, collected over 5 days. The above code was written in java and Manipulation of the received raw data was done using the north concepts library which handles data conversion, processing and transformation in java applications. 
+\subsection{Prediction}
+The above data collection method relates to how we gathered data for the Initial stage of our analysis, that is training and testing. This sub section deals with our data collection methodology for our verification stage. We collection 39 individual tweets from very different users. Of this we had 20 Untrustworthy tweets and 19 Trustworthy tweets. When choosing untrustworthy tweets, we referred to news paper articles which point out some of the rumours that were spread during crisis situations around the world. We hand picked some of the highlighted tweets in these articles. When choosing Trustworthy tweets for our analysis we looked at further news agency profiles which we hadn't used in our training. Since we were selecting tweets, we had to retrieve the features of these tweets using the tweet ID of the tweet, which is found at the top of the URL of the tweet detail page. For example, in this URL, \url{https://twitter.com/ObamaNews/status/506469766815416320} the latter part gives us the ID of this specific tweet. We use this ID in a restful call as follow : \url{https://api.twitter.com/1.1/statuses/lookup.json?id=506469766815416320}. Once we receive the features of the necessary tweets, the processing of the tweets and filtering is similar to how we processed our training data. 
+\newpage
+\section{Feature Selection} 
+The raw JSON that we receive from the REST calls have a huge amount of information that we may not need. Some of the features retrieved have a significant amount of null values which might cause problems in our analysis later. For this reason some features of the returned results were dropped at various stages in the program. (Some at initial data collection level and some later on in the actual dataset used for measure).
+We categorised the features that we would use for our training into three different types of sections. They are : \\*\\*
+$\textbf{Tweet Based Features : }$ This feature set primarily dealt with features pertaining to the Tweet in question. Examples of some of the tweet based features used in our model are - In reply to a status or a user, Number of retweets, number of times the tweet has been favourited and the number of hashtags in the tweet.  \\*\\*
+$\textbf{User Related Features : }$ This feature set handles features that relate to the user.  Verified Profile, Number of Statuses published, Does profile use a background image and Number of followers are some examples of user related features that we used in our model. \\*\\*
+$\textbf{Message Content Based Features : }$ This feature set is a collection of features which are mostly derived from the message content and other attributes, which deal with the actual contents of the tweet. Length of the tweet, Emotions in the tweet and Keywords used are some of the features that we included the analyse message content.\\*\\*
+The complete list of features retrieved and used are given in the next section. \\*
+\section{Features}
+The following table explains the features in detail and the reasoning behind the inclusion or exclusion of this information in our classifiers. 
+\newpage
+\begin{landscape}
+\centering
+\begin{longtable}{|C{1.00in}|C{2.50in}|C{.60in}|C{5.00in}|}
+\caption{Tweet Based Features} \\
+\toprule[1.5pt]
+Feature Name & Explanation & Included & Reason \\\midrule
+Created\_At & UTC time for when this tweet was created & Yes & This could be used to see if frequency has an impact on trustworthiness. For instance if the number of tweets per minute posted by the user has an impact on the trustworthiness of a user. \\
+\hline
+Id & Tweet ID & No  & The ID of the tweet could in no way impact our analysis \\                                                                                                                                                                                                                            
+\hline
+Id\_str & Tweet ID in String Form & No  & As above \\                                                                                                                                                                                                                                                                            
+\hline
+Text & Actual Tweet  & No  & We have used the text of the tweet to analyse the contents of the message. These features will be explained in depth in the table on Message Based Features. \\
+\hline
+Source & This is the Utility used to post the tweet, as an HTML-formatted string & No  & Although it would be interesting to see if there is any correlation between the utility used to post the tweet and the trustworthiness of the tweet, most tweets are posted from the twitter web client which has a source value of `web' hence this would not make a huge difference. \\ 
+\hline
+truncated & If the tweet was truncated or if it is the original length & No  & The Twitter API says that this feature is rarely ever used since twitter now rejects long tweets as opposed to truncate them - we saw no reason to use this. \\
+ \hline
+In reply to Status id & If this tweet was a response to a status then the integer representation of the ID of the status replied to & Yes & This feature would tell us if it is a tweet or a reply to a tweet, hence we used this.\\
+\hline
+In reply to Status id str & If this tweet was a response to a status then the string representation of the ID of the status  & No  & This is just a repetition of the previous feature in String Form\\
+\hline
+In reply to user id & If this tweet was a response / message to a user, the integer representation of the UserID & Yes & This feature can be used to check to see if it is a response to a user or a tweet. \\
+\hline
+In reply to user id str & If this tweet was a response / message to a user, the string representation of the UserID  & No  & Repetition of previous information above. \\     
+\hline                                                                                                             
+In reply to screen name & If the tweet is a response then this field will have the screen name of the original author  & No  & Repetition of previous information above.  \\    
+\hline                                                                                                                                                                                                          
+user  & This is an embedded JSON array containing information about the user who posted the tweet. This list contains only basic user information. & No  & Since we made another request with the actual user ID to retrieve information about the user this array will just be a replica of what we already have. The advice from Twtitter API is also such that embedded information such as this are unreliable. \\
+\hline
+geo & Deprecated   & No  & Although this appears as part of the JSON received this feature is deprecated in this API. \\
+\hline
+coordinates  & The geographical location of the tweet if provided. & No  & In almost all the data we received this information is not present hence we decided to drop it. However user locations are available on the user profile. \\
+\hline
+place  & If a value is present then this shows that the tweet is associated but not necessarily originating from this place. & No  & Again a huge majority of the samples we received didn?t have this information so we decided to not include this information. \\
+\hline
+contributors & A collection of brief user objects showing the people who contributed to the authorship of the tweet. & No  & This will only work if the user has turned the contributors enabled feature on. This is a beta feature and is not available to all the users at this point of time, hence we decided to not include this in our analysis. \\
+\hline
+Retweet count  & Number of times a story has been retweeted & Yes & This could be an important indication of propagation of data and how information spreads hence we included this in our model. \\
+\hline
+Favourite count & Number of times a story has been favourited & Yes & The times a story has been favourited may also play an important role on trustworthiness, therefore this is included.\\
+\hline
+entities & Entities provide information about the text of the tweet without having to parse the text to find out the structure. It shows you URLs, MediaURLs, Hashtags and symbols used in a tweet. & Yes & This information is deemed valuable as we can analyse the differences in structure of a trustworthy tweet with an untrustworthy one. e.g : Analysis such as do trustworthy tweets always come with a URL, or Image accompanying the story etc.\\
+\hline
+favourited & This indicates if the tweet has been favourited by me (Authenticating User) & No  & This piece of information is irrelevant, since it concerns the authenticating user (me in this instance) hence the exclusion.  \\
+\hline
+retweeted & This indicates if the tweet has been retweeted by the authenticating user.  & No  & This piece of information is irrelevant, since it concerns the authenticating user (me in this instance) hence the exclusion. \\
+\hline
+Possibly sensitive & This field only comes up if the tweet contains a link. This is an indicator, that the URL in the tweet may contain media that may be sensitive. & Yes & A value in this field indicates two things : That a URL is present and if the URL is sensitive or not. Hence this feature could be useful for our analysis. \\
+\hline
+lang  & This indicates a BCP 47\footnote{\url{http://tools.ietf.org/html/bcp47}} language identifier which shows the language that was detected by the machine for the tweet. & Yes & This feature is used - since we want only tweets that are in english \\
+\hline
+frequency  & DERIVED : This is a derived value from the Messages received. We Take the first and Last tweets of a User Over a time period and calculate the frequency of the tweets  & Yes & This could be an important indicator in informing us patterns for different types of users, hence we use this feature.\\
+\hline
+Is It A Retweet & DERIVED : This is a column that checks if the tweet is a retweet or an original & Yes & This could be used to weed out duplicates.\\  
+\hline                                                                                                                                                                                                            
+\bottomrule[1.25pt]
+\end{longtable}
+\label{tab:LPer}
+\end{landscape}
+
+\begin{landscape}
+\centering
+\begin{longtable}{|C{1.00in}|C{2.50in}|C{.60in}|C{5.00in}|}
+\caption{User Related Features} \\
+\toprule[1.5pt]
+Feature Name  & Explanation & Included In & Reason  \\\midrule
+Id   & Unique Identifier for User                                                                                                     & No          & Not very useful for analysis                                                                                                                                                                     \\
+\hline    
+Id str & String representation of the id above                                                                                          & No          & Not very useful for analysis                                                                                                                                                                     \\
+\hline    
+Name & The name of the user as they?ve defined it                                                                                     & No          & Not very useful for analysis                                                                                                                                                                     \\
+\hline    
+Screen Name  & The name a user is identified with on twitter                                                                                  & No          & This feature could have been used at some point to weed out badly spelt or written screen names but we have not used it in this iteration.                                                       \\
+\hline    
+Location  & The user defined location for this account.                                                                                    & No          & Including this diluted our analysis since we had profiles from all over the world, and we only had 40 profiles in total.                                                                         \\
+\hline    
+Description & A string describing the users account                                                                                          & Yes         & The description itself is not used in our analysis however the length of the description string is used in our analysis.                                                                         \\
+\hline    
+URL  & A URL associated with the user provided by him/her                                                                             & Yes         & We check if the user has a URL or not. We do not use the URL itself.                                                                                                                              \\
+\hline    
+Entities  & Entities that have been parsed from the URL or description fields.                                                             & No          & This information has already been taken into account from other features.                                                                                                                        \\
+\hline    
+Protected & This indicates if the user has chosen to protect their tweets                                                                  & Yes         & This might have some significance as well hence included.                                                                                                                                        \\
+\hline    
+Followers Count  & The Number of followers this User / Account currently has                                                                      & Yes         & This is a very important feature, hence it is included in both our classifiers.                                                                                                                  \\
+\hline    
+Friends Count & The Number of users this user follows on twitter                                                                               & Yes         & This is also a very important feature hence it is included.                                                                                                                                      \\
+\hline    
+Listed Count                       & This is the number of public lists this account is a member of.                                                                & Yes         & This is also a very important feature hence it is included.                                                                                                                                      \\
+\hline    
+Created At                         & The date and time this account was created                                                                                     & Yes         & This feature also might be an indicator of the trustworthiness of the source/ account.                                                                                                           \\
+\hline    
+Favourites Count                   & The amount of tweets this user has favourited from the date of opening the account                                             & Yes         & It will be interesting to see if there are any patterns in how active the user is in terms of favouriting other tweets and responding.                                                           \\
+\hline    
+UTC Offset                         & This is the offset from GMT given in seconds.                                                                                  & No          & This is not used since Location has already been used once.                                                                                                                                      \\
+\hline    
+Time Zone                          & This string gives the time zone within which the user profile is within                                                        & No          & Once again this feature would be a duplicate of Location hence we did not use it.                                                                                                                \\
+\hline    
+Geo Enabled                        & If true this means that the user has enabled geo tagging for his tweets.                                                       & Yes         & Again, it would be interesting to identify any patterns amongst the different types of users.                                                                                                    \\
+\hline    
+Verified                           & Verified Twitter accounts are accounts which Twitter has verified - stating that the user is who they say they are on twitter. & Yes         & This could be a very important factor in predicting trustworthiness hence it is included in our model.                                                                                           \\
+\hline    
+Statuses Count                     & The number of tweets published by the user.                                                                                    & Yes         & It would be interesting to see the correlation or between the total number of statuses and Trustworthiness factor.                                                                               \\
+\hline    
+Lang                               & The BCP 47 code for the language used by the user. This is self declared.  & No          & This feature is not used since it could negatively impact the analysis, or create a bias that is unnecessary.                                                                                    \\
+\hline    
+Status                             & This gives information about the users most recent tweet.                                                                      & No          & We will not be using this feature since we have all the necessary information we need about the users tweets from our primary request to the API.                                                \\
+\hline    
+Contributors Enabled               & This allows the tweets by this account to be coauthored by another account                                                     & No          & According to Twitter, this is rarely true. Hence this feature is ignored.                                                                                                                        \\
+\hline    
+Is Translator                      & If this is true, then it indicates that the user is a part of the translator community for twitter                             & No          & This feature again is rarely true hence this wasn't included in our model.                                                                                                                       \\
+\hline    
+Profile Background Color           & This is the hexadecimal color chosen by the user for their background.                                                         & No          & We didn?t think that the choice of colour could be impactful since each account will use colours they are recognised with.                                                                       \\
+\hline    
+Profile Background Image URL       & A HTTP-based URL which directs you to the URL of the image that the user used on his profile                                   & Yes         & This feature was used, although not as the URL. We modified this attribute to boolean, true and false. Profile background image exists, and profile background image doesn't exist 
+respectively. \\
+\hline    
+Profile Background Image URL https & This is the same information as the row above                                                                                  & No          & Repetition                                                                                                                                                                                       \\
+\hline    
+Profile Background Tile            & This indicates that the users? background image should be tiled                                                                & No          & This is an attribute that concerns the aesthetics of the profile hence not considered.                                                                                                           \\
+\hline    
+Profile Image URL                  & A HTTP based URL directing you to the users profile image                                                                      & No          & Most profiles, have an avatar - if they tweet significantly. Hence this information was not considered.                                                                                          \\
+\hline    
+Profile Image URL https            & A HTTP based URL directing you to the users profile image                                                                      & No          & Repetition                                                                                                                                                                                       \\
+\hline    
+Profile Link Color                 & The colour that the user chose to display links.                                                                               & No          & Again, this concerns the aesthetics of the profile, hence not considered.                                                                                                                        \\
+\hline    
+Profile Side Border Color          & The colour that the user chose to display the borders of their profile                                                         & No          & Again, this concerns the aesthetics of the profile, hence not considered.                                                                                                                        \\
+\hline    
+Profile Sidebar Fill Color         & The sidebar fill colour                                                                                                        & No          & Again, this concerns the aesthetics of the profile, hence not considered.                                                                                                                        \\
+\hline    
+Profile Text Color                 & The colour for their text                                                                                                      & No          & Again, this concerns the aesthetics of the profile, hence not considered.                                                                                                                        \\
+\hline    
+Profile Use Background Image       & If true the user wants to use a background image.                                                                              & Yes         & It would be useful to know if there exists a pattern between trustworthy and untrustworthy twitter profiles using background images.                                                             \\
+\hline    
+Default Profile                    & This if true indicates that the user has not changed the theme or background of their profile.                                 & Yes         & This may not be very significant but if there was a pattern in whether owners of profiles change their original profile it would be useful to check.                                             \\
+\hline    
+Default Profile Image              & If true this indicates that the user has not changed the avatar for his profile                                                & No          & This is loosely covered in some of the features above.                                                                                                                                           \\
+\hline    
+Following                          & Shows if my profile is following this user                                                                                     & No          & This piece of information is not significant as it concerns the authenticator.                                                                                                                   \\
+\hline    
+Follow Request Sent                & Shows if I have sent a request to follow this user                                                                             & No          & This piece of information is not significant as it concerns the authenticator.                                                                                                                   \\
+\hline    
+Notifications                      & Indicates if the user has chosen to receive his tweets via SMS                                                                 & No          & This is deprecated hence not used.   \\                                                                                                                                                          
+\hline    
+\bottomrule[1.25pt]
+\end{longtable}
+\label{tab:LPer}
+\end{landscape}
+
+\newpage
+\begin{landscape}
+\centering
+\begin{longtable}{|C{1.00in}|C{2.50in}|C{.60in}|C{5.00in}|}
+\caption{Message Content Based Features}\\
+\toprule[1.5pt]
+Feature Name & Explanation & Included & Reason \\\midrule
+Tweet Length & DERIVED :  This is the length of the tweet & Yes & Although the maximum characters in a tweet is limited to 140, we thought it would be interesting to observe the general character count of tweets classified as trustworthy and untrustworthy. \\ 
+\hline
+Number of Smilies &DERIVED : The number of smilies included in the tweet &Yes&From research conducted previously it was proven that tweets with emoticons are considered less high quality. For this reason we chose to count the number of emoticons used in the tweet. \\
+\hline
+Tweet Emotions & DERIVED : Emotions such as Happy and Sad are detected from the emoticons in the tweet &Yes&The detection of Sad or Happy tweets, we thought might shed some insight into trustworthiness. \\
+\hline
+Key words used  &DERIVED : The use of the following words in tweets : BREAKING', 'SHOCKING', 'UNBELIEVABLE', 'LEAKED', 'REVEALED', 'GUYS', 'NEWS!', 'WANTED' &Yes & From the research conducted as part of this project we understood that the words in this list were constantly used in untrustworthy tweets to attract attention.\\
+\hline
+\bottomrule[1.25pt]
+\end{longtable}
+\label{tab:LPer}
+\end{landscape}
+\section{Data Manipulation}
+In this section we briefly discuss some of the data transformations applied to our data set in order to prepare the data for analysis.\\*\\*
+Once data collection and feature selection was completed, we implemented three Machine Learning models, namely Logistic Regression, Support Vector Machines and Random Forests. We dropped some of the unimportant features (according to the previous section) and tweaked some of the data such that they don't vary greatly in value. For instance the column \textit{In Reply to Status ID} contained status ID values which was a long integer. Using this for our analysis did not help since the value of these long Integers were unimportant as they were merely status IDs. However the classifiers treat them as numbers, which in turn produced many inaccurate predictions. We tackled this problem by making sure that this feature was just a boolean to state if it was a reply to a status or not. Likewise we handled a few other features. Some of the features returned from twitter contained null values. The data handling library we used, would drop any row with null values, in which case we ended with not much data to analyse from. However for some of the features, the absence of a value was also necessary for our analysis. For example, the feature \textit{MediaURL} would tell us if the tweet contained a URL to some media type. As previously mentioned the value of this URL was not important however the presence or absence of it was. We gave features of this type boolean values as well. Apart from this we also used StandardScaler\footnote{Standardise features by removing the mean and scaling to unit variance\cite{38}}, which handles further discrepancies in values by normalising each feature and gave it a range from 1.0 to -1.0. This also sped up the training and testing time taken by our model by some seconds.  

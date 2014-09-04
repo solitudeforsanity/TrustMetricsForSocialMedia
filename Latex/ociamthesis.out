@@ -1,0 +1,55 @@
+\BOOKMARK [-1][-]{part.1}{I Background}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introduction}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Aims and Approach}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Objectives}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Thesis Structure}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Literature Review}{part.1}% 7
+\BOOKMARK [1][-]{section.2.1}{Information Trustworthiness Online}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.1.1}{Non-Twitter Based Research}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.2}{Twitter Based Research}{section.2.1}% 10
+\BOOKMARK [1][-]{section.2.2}{Measuring Trustworthiness}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.1}{Metrics and Models}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.2}{Data Collection and Classification Methodology}{section.2.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Summary}{chapter.2}% 14
+\BOOKMARK [-1][-]{part.2}{II Contributions}{}% 15
+\BOOKMARK [0][-]{chapter.3}{Approach to the Problem}{part.2}% 16
+\BOOKMARK [1][-]{section.3.1}{Methodology}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{Scope}{section.3.1}% 18
+\BOOKMARK [1][-]{section.3.2}{Approach Detailed}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Data Collection and Feature Selection}{part.2}% 20
+\BOOKMARK [1][-]{section.4.1}{Data Collection}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.1.1}{Training and Testing}{section.4.1}% 22
+\BOOKMARK [2][-]{subsection.4.1.2}{Prediction}{section.4.1}% 23
+\BOOKMARK [1][-]{section.4.2}{Feature Selection}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.3}{Features}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.4}{Data Manipulation}{chapter.4}% 26
+\BOOKMARK [0][-]{chapter.5}{Applying Machine Learning}{part.2}% 27
+\BOOKMARK [1][-]{section.5.1}{Problem Structure}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.2}{Logisitc Regression}{chapter.5}% 29
+\BOOKMARK [2][-]{subsection.5.2.1}{Background }{section.5.2}% 30
+\BOOKMARK [2][-]{subsection.5.2.2}{Algorithm}{section.5.2}% 31
+\BOOKMARK [2][-]{subsection.5.2.3}{Application}{section.5.2}% 32
+\BOOKMARK [1][-]{section.5.3}{Support Vector Machines}{chapter.5}% 33
+\BOOKMARK [2][-]{subsection.5.3.1}{Background}{section.5.3}% 34
+\BOOKMARK [2][-]{subsection.5.3.2}{Algorithm}{section.5.3}% 35
+\BOOKMARK [1][-]{section.5.4}{Random Forests}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.4.1}{Background}{section.5.4}% 37
+\BOOKMARK [2][-]{subsection.5.4.2}{Algorithm}{section.5.4}% 38
+\BOOKMARK [2][-]{subsection.5.4.3}{Application}{section.5.4}% 39
+\BOOKMARK [0][-]{chapter.6}{Evaluation and Discussion}{part.2}% 40
+\BOOKMARK [1][-]{section.6.1}{Experiment}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.2}{Results}{chapter.6}% 42
+\BOOKMARK [2][-]{subsection.6.2.1}{Accuracy, Precision and Recall}{section.6.2}% 43
+\BOOKMARK [2][-]{subsection.6.2.2}{Probabilities}{section.6.2}% 44
+\BOOKMARK [1][-]{section.6.3}{Discussion}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.4}{Summary}{chapter.6}% 46
+\BOOKMARK [0][-]{chapter.7}{Reflection}{part.2}% 47
+\BOOKMARK [1][-]{section.7.1}{Conclusion}{chapter.7}% 48
+\BOOKMARK [1][-]{section.7.2}{FutureWork}{chapter.7}% 49
+\BOOKMARK [1][-]{section.Alph0.1}{System Framework}{chapter.7}% 50
+\BOOKMARK [2][-]{subsection.Alph0.1.1}{Development System Specification}{section.Alph0.1}% 51
+\BOOKMARK [2][-]{subsection.Alph0.1.2}{Data Collection Unit Technical Specification}{section.Alph0.1}% 52
+\BOOKMARK [2][-]{subsection.Alph0.1.3}{Machine Learning Model Technical Specification}{section.Alph0.1}% 53
+\BOOKMARK [1][-]{section.Alph0.2}{Confusion Matrix}{chapter.7}% 54
+\BOOKMARK [0][-]{figure.caption.18}{Bibliography}{part.2}% 55

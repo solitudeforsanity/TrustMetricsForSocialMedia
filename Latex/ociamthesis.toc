@@ -1,19 +1,55 @@
-\contentsline {part}{I\hspace {1em}Background}{1}
-\contentsline {chapter}{\numberline {1}Introduction}{2}
-\contentsline {section}{\numberline {1.1}Motivation}{2}
-\contentsline {section}{\numberline {1.2}Aim}{3}
-\contentsline {section}{\numberline {1.3}Goals}{4}
-\contentsline {section}{\numberline {1.4}Thesis Structure}{4}
-\contentsline {chapter}{\numberline {2}Literature Review}{6}
-\contentsline {section}{\numberline {2.1}Research Types, Domains, Similarity}{6}
-\contentsline {section}{\numberline {2.2}Data Collection}{7}
-\contentsline {section}{\numberline {2.3}Analysis and Techniques}{8}
-\contentsline {section}{\numberline {2.4}Results, Conclusions and Unfinished Work}{8}
-\contentsline {part}{II\hspace {1em}Model Theory}{10}
-\contentsline {chapter}{\numberline {3}Logistic Regression}{11}
-\contentsline {section}{\numberline {3.1}Background }{11}
-\contentsline {section}{\numberline {3.2}Derivation}{11}
-\contentsline {chapter}{\numberline {4}Support Vector Machines}{15}
-\contentsline {part}{III\hspace {1em}Experimental Setting}{16}
-\contentsline {chapter}{\numberline {5}Method}{17}
-\contentsline {part}{IV\hspace {1em}Appendix}{18}
+\contentsline {part}{I\hspace {1em}Background}{1}{part.1}
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Aims and Approach}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objectives}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Thesis Structure}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Literature Review}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Information Trustworthiness Online}{6}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Non-Twitter Based Research}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Twitter Based Research}{7}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Measuring Trustworthiness}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Metrics and Models}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Data Collection and Classification Methodology}{9}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Summary}{10}{section.2.3}
+\contentsline {part}{II\hspace {1em}Contributions}{11}{part.2}
+\contentsline {chapter}{\numberline {3}Approach to the Problem}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Methodology}{12}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Scope}{12}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Approach Detailed}{13}{section.3.2}
+\contentsline {chapter}{\numberline {4}Data Collection and Feature Selection}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}Data Collection}{16}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Training and Testing}{16}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Prediction}{17}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Feature Selection}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}Features}{18}{section.4.3}
+\contentsline {section}{\numberline {4.4}Data Manipulation}{28}{section.4.4}
+\contentsline {chapter}{\numberline {5}Applying Machine Learning}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Problem Structure}{30}{section.5.1}
+\contentsline {section}{\numberline {5.2}Logisitc Regression}{31}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Background }{31}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Algorithm}{31}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Application}{33}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Support Vector Machines}{34}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Background}{34}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Algorithm}{34}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Random Forests}{36}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Background}{36}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Algorithm}{36}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Application}{37}{subsection.5.4.3}
+\contentsline {chapter}{\numberline {6}Evaluation and Discussion}{38}{chapter.6}
+\contentsline {section}{\numberline {6.1}Experiment}{38}{section.6.1}
+\contentsline {section}{\numberline {6.2}Results}{40}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Accuracy, Precision and Recall}{40}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Probabilities}{43}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Discussion}{45}{section.6.3}
+\contentsline {section}{\numberline {6.4}Summary}{51}{section.6.4}
+\contentsline {chapter}{\numberline {7}Reflection}{52}{chapter.7}
+\contentsline {section}{\numberline {7.1}Conclusion}{52}{section.7.1}
+\contentsline {section}{\numberline {7.2}FutureWork}{53}{section.7.2}
+\contentsline {section}{\numberline {.1}System Framework}{54}{section.Alph0.1}
+\contentsline {subsection}{\numberline {.1.1}Development System Specification}{54}{subsection.Alph0.1.1}
+\contentsline {subsection}{\numberline {.1.2}Data Collection Unit Technical Specification}{54}{subsection.Alph0.1.2}
+\contentsline {subsection}{\numberline {.1.3}Machine Learning Model Technical Specification}{54}{subsection.Alph0.1.3}
+\contentsline {section}{\numberline {.2}Confusion Matrix}{56}{section.Alph0.2}
+\contentsline {chapter}{Bibliography}{60}{figure.caption.18}

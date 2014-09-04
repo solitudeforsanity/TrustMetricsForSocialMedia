@@ -1,0 +1,210 @@
+\begin{thebibliography}{10}
+
+\bibitem{31}
+Yaser Abu-Mostafa.
+\newblock {Support Vector Machines}.
+\newblock \url{http://work.caltech.edu/library/140.pdf}, 2012.
+\newblock [Online; accessed 1-Sep-2014].
+
+\bibitem{5}
+Eugene Agichtein, Carlos Castillo, Debora Donato, Aristides Gionis, and Gilad
+  Mishne.
+\newblock Finding high-quality content in social media.
+\newblock In {\em Proceedings of the 2008 International Conference on Web
+  Search and Data Mining}, pages 183--194. ACM, 2008.
+
+\bibitem{4}
+Joshua~E Blumenstock.
+\newblock Size matters: word count as a measure of quality on wikipedia.
+\newblock In {\em Proceedings of the 17th international conference on World
+  Wide Web}, pages 1095--1096. ACM, 2008.
+
+\bibitem{22}
+Julia Boorstin.
+\newblock {Facebook Vs Twitter : Here's how they're different}.
+\newblock \url{http://www.cnbc.com/id/101087718#}, 2013.
+\newblock [Online; accessed 20-Aug-2014].
+
+\bibitem{41}
+Courtney Brown.
+\newblock {Statistics with R}.
+\newblock \url{https://www.youtube.com/watch?v=EocjYP5h0cE/}, 2013.
+\newblock [Online; accessed 27-Aug-2014].
+
+\bibitem{12}
+Carlos Castillo, Marcelo Mendoza, and Barbara Poblete.
+\newblock Information credibility on twitter.
+\newblock In {\em Proceedings of the 20th international conference on World
+  wide web}, pages 675--684. ACM, 2011.
+
+\bibitem{23}
+Christine Erickson.
+\newblock {10 Hilarious Parody News Accounts on Twitter}.
+\newblock \url{http://mashable.com/2012/04/20/twitter-parodies-news/}, 2012.
+\newblock [Online; accessed 25-Aug-2014].
+
+\bibitem{2}
+Batya Friedman, Peter~H Khan~Jr, and Daniel~C Howe.
+\newblock Trust online.
+\newblock {\em Communications of the ACM}, 43(12):34--40, 2000.
+
+\bibitem{11}
+Aditi Gupta and Ponnurangam Kumaraguru.
+\newblock Credibility ranking of tweets during high impact events.
+\newblock In {\em Proceedings of the 1st Workshop on Privacy and Security in
+  Online Social Media}, page~2. ACM, 2012.
+
+\bibitem{28}
+Olaf Hartig.
+\newblock Towards a data-centric notion of trust in the semantic web.
+\newblock In {\em 2nd Workshop on Trust and Privacy on the Social and Semantic
+  Web SPOT2010, Heraklion (Greece)}, volume 110. Citeseer, 2010.
+
+\bibitem{30}
+Trevor Hastie, Robert Tibshirani, Jerome Friedman, T~Hastie, J~Friedman, and
+  R~Tibshirani.
+\newblock {\em The elements of statistical learning}, volume~2.
+\newblock Springer, 2009.
+
+\bibitem{16}
+Dan~Roberts Heidi~Moore.
+\newblock {AP Twitter hack causes panic on Wall Street and sends Dow plunging}.
+\newblock
+  \url{http://www.theguardian.com/business/2013/apr/23/ap-tweet-hack-wall-street-freefall},
+  2013.
+\newblock [Online; accessed 16-Aug-2014].
+
+\bibitem{37}
+Kashmir Hill.
+\newblock {Hurricane Sandy, @ComfortablySmug, and The Flood of Social Media
+  Misinformation}.
+\newblock
+  \url{http://www.forbes.com/sites/kashmirhill/2012/10/30/hurricane-sandy-and-the-flood-of-social-media-misinformation/},
+  2012.
+\newblock [Online; accessed 31-Aug-2014].
+
+\bibitem{42}
+Wikipedia Inc.
+\newblock {Decision Tree Learning}.
+\newblock \url{http://en.wikipedia.org/wiki/Decision_tree_learning}, 2014.
+\newblock [Online; accessed 26-Aug-2014].
+
+\bibitem{35}
+Wikipedia~Foundation Inc.
+\newblock {Polynomial Kernel}.
+\newblock \url{http://en.wikipedia.org/wiki/Polynomial_kernel}, 2014.
+\newblock [Online; accessed 24-Aug-2014].
+
+\bibitem{33}
+Wikipedia~Foundation Inc.
+\newblock {Radial Basis Function Kernel}.
+\newblock \url{http://en.wikipedia.org/wiki/Radial_basis_function_kernel},
+  2014.
+\newblock [Online; accessed 23-Aug-2014].
+
+\bibitem{25}
+Yan Jin, Brooke~Fisher Liu, and Lucinda~L Austin.
+\newblock Examining the role of social media in effective crisis management:
+  The effects of crisis origin, information form, and source on publics? crisis
+  responses.
+\newblock {\em Communication Research}, page 0093650211423918, 2011.
+
+\bibitem{24}
+Max Knoblauch.
+\newblock {AP18 Fake Twitter Accounts Still Proving Phony Is Funny}.
+\newblock \url{http://mashable.com/2014/06/03/best-fake-twitter-accounts/},
+  2014.
+\newblock [Online; accessed 30-Aug-2014].
+
+\bibitem{43}
+Michelle Ma.
+\newblock {Hold that RT: Much misinformation tweeted after 2013 Boston Marathon
+  bombing}.
+\newblock
+  \url{http://www.washington.edu/news/2014/03/17/hold-that-rt-much-misinformation-tweeted-after-2013-boston-marathon-bombing/},
+  2014.
+\newblock [Online; accessed 30-Aug-2014].
+
+\bibitem{17}
+Meredith~Ringel Morris, Scott Counts, Asta Roseway, Aaron Hoff, and Julia
+  Schwarz.
+\newblock Tweeting is believing?: understanding microblog credibility
+  perceptions.
+\newblock In {\em Proceedings of the ACM 2012 conference on Computer Supported
+  Cooperative Work}, pages 441--450. ACM, 2012.
+
+\bibitem{40}
+Kevin~P Murphy.
+\newblock {\em Machine learning: a probabilistic perspective}.
+\newblock MIT press, 2012.
+
+\bibitem{7}
+Jason~RC Nurse, Sadie Creese, Michael Goldsmith, and Syed~Sadiqur Rahman.
+\newblock Supporting human decision-making online using
+  information-trustworthiness metrics.
+\newblock In {\em Human Aspects of Information Security, Privacy, and Trust},
+  pages 316--325. Springer, 2013.
+
+\bibitem{13}
+Jason~RC Nurse, Syed~S Rahman, Sadie Creese, Michael Goldsmith, and Koen
+  Lamberts.
+\newblock Information quality and trustworthiness: A topical state-of-the-art
+  review.
+\newblock In {\em Proceedings of the International Conference on Computer
+  Applications and Network Security (ICCANS)}, 2011.
+
+\bibitem{10}
+Michael~P O'Mahony and Barry Smyth.
+\newblock Using readability tests to predict helpful product reviews.
+\newblock In {\em Adaptivity, Personalization and Fusion of Heterogeneous
+  Information}, pages 164--167. LE CENTRE DE HAUTES ETUDES INTERNATIONALES
+  D'INFORMATIQUE DOCUMENTAIRE, 2010.
+
+\bibitem{15}
+Jason Rennie.
+\newblock Logistic regression.
+\newblock {\em online] Apr}, 23, 2003.
+
+\bibitem{3}
+Fred~B Schneider et~al.
+\newblock {\em Trust in cyberspace}.
+\newblock National Academies Press, 1999.
+
+\bibitem{18}
+Phil Simon.
+\newblock {\em Too Big to Ignore: The Business Case for Big Data}.
+\newblock John Wiley \& Sons, 2013.
+
+\bibitem{39}
+Sklearn.
+\newblock {Kernal Functions}.
+\newblock \url{http://scikit-learn.org/dev/modules/svm.html#svm-kernels}, 2014.
+\newblock [Online; accessed 27-Aug-2014].
+
+\bibitem{38}
+Sklearn.
+\newblock {SKLearn Standard Scaler}.
+\newblock
+  \url{http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html},
+  2014.
+\newblock [Online; accessed 3-Sep-2014].
+
+\bibitem{32}
+Baxter~Tyson Smith.
+\newblock Lagrange multipliers tutorial in the context of support vector
+  machines.
+\newblock {\em Memorial University of Newfoundland St. John?s, Newfoundland,
+  Canada}.
+
+\bibitem{26}
+Zachary Sniderman.
+\newblock {AP18 Fake Twitter Accounts Still Proving Phony Is Funny}.
+\newblock \url{http://mashable.com/2011/07/25/government-social-media/}, 2011.
+\newblock [Online; accessed 30-Aug-2014].
+
+\bibitem{27}
+Richard~Y Wang and Diane~M Strong.
+\newblock Beyond accuracy: What data quality means to data consumers.
+\newblock {\em Journal of management information systems}, pages 5--33, 1996.
+
+\end{thebibliography}

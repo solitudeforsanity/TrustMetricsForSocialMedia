@@ -1,0 +1,22 @@
+This is METAFONT, Version 2.718281 (TeX Live 2013) (base=mf 2014.3.31)  4 SEP 2014 01:02
+**\mode:=ljfour; mag:=1; nonstopmode; input oxbeltcrest
+(/Users/Kaushy/Courses/Project/Dissertation/Latex/oxbeltcrest.mf
+(/usr/local/texlive/2013/texmf-dist/fonts/source/public/cm/cmbase.mf)
+! I can't find file `oxbeltcrestletters'.
+<scantokens> input oxbeltcrestletters
+                                     
+<to be read again> 
+                   ;
+l.33 scantokens ("input " & jobname & "letters");
+                                                 
+Please type another input file name
+! Emergency stop.
+<scantokens> input oxbeltcrestletters
+                                     
+<to be read again> 
+                   ;
+l.33 scantokens ("input " & jobname & "letters");
+                                                 
+*** (job aborted, file error in nonstop mode)
+
+

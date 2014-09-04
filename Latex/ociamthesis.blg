@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ociamthesis.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: acknowlegements.aux
+A level-1 auxiliary file: Chapter1.aux
+A level-1 auxiliary file: Chapter2.aux
+A level-1 auxiliary file: Chapter3.aux
+A level-1 auxiliary file: Chapter4.aux
+A level-1 auxiliary file: Chapter5.aux
+A level-1 auxiliary file: Chapter6.aux
+A level-1 auxiliary file: Chapter7.aux
+A level-1 auxiliary file: conclusions.aux
+A level-1 auxiliary file: bibliography.aux
+A level-1 auxiliary file: part4.aux
+A level-1 auxiliary file: appendix1.aux
+The style file: plain.bst
+Database file #1: bibliography.bib
+Warning--can't use both volume and number fields in 30
+Warning--empty year in 32
+You've used 32 entries,
+            2118 wiz_defined-function locations,
+            668 strings with 9238 characters,
+and the built_in function-call counts, 9887 in all, are:
+= -- 1005
+> -- 386
+< -- 11
++ -- 157
+- -- 124
+* -- 480
+:= -- 1575
+add.period$ -- 118
+call.type$ -- 32
+change.case$ -- 153
+chr.to.int$ -- 0
+cite$ -- 34
+duplicate$ -- 423
+empty$ -- 854
+format.name$ -- 124
+if$ -- 2203
+int.to.chr$ -- 0
+int.to.str$ -- 32
+missing$ -- 22
+newline$ -- 177
+num.names$ -- 64
+pop$ -- 255
+preamble$ -- 1
+purify$ -- 125
+quote$ -- 0
+skip$ -- 333
+stack$ -- 0
+substring$ -- 433
+swap$ -- 140
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 120
+warning$ -- 2
+while$ -- 89
+width$ -- 34
+write$ -- 370
+(There were 2 warnings)

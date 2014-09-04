@@ -3,3 +3,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparison of Machine Learning Models}}{29}{figure.caption.3}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Logistic Regression}}{32}{figure.caption.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Logistic Regression Confusion Matrix}}{42}{figure.caption.5}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Support Vector Machine Confusion Matrix}}{43}{figure.caption.6}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Random Forests Confusion Matrix}}{43}{figure.caption.7}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Logistic Regression AUC}}{44}{figure.caption.8}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Support Vector Machine AUC}}{45}{figure.caption.9}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Random Forests AUC}}{45}{figure.caption.10}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Unimportant Tweet}}{48}{figure.caption.11}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces MH370}}{50}{figure.caption.12}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1}{\ignorespaces LR Confusion Matrix New Data}}{56}{figure.caption.13}
+\contentsline {figure}{\numberline {2}{\ignorespaces SVM Confusion Matrix New Data}}{57}{figure.caption.14}
+\contentsline {figure}{\numberline {3}{\ignorespaces RF Confusion Matrix New Data}}{57}{figure.caption.15}
+\contentsline {figure}{\numberline {4}{\ignorespaces LR Confusion Matrix Random Data}}{58}{figure.caption.16}
+\contentsline {figure}{\numberline {5}{\ignorespaces SVM Confusion Matrix Random Data}}{58}{figure.caption.17}
+\contentsline {figure}{\numberline {6}{\ignorespaces RF Confusion Matrix Random Data}}{59}{figure.caption.18}

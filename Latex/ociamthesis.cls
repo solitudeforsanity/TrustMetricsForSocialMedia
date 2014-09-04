@@ -7,8 +7,8 @@
 \ProvidesClass{ociamthesis}[2010/11/22 v2.2 OCIAM thesis class]
 %-------------------------- initial code -----------------------
 \def\logoversion{squarelogo}
-\DeclareOption{beltcrest}{\def\logoversion{beltcrest}}
-\DeclareOption{shieldcrest}{\def\logoversion{shieldcrest}}
+%\DeclareOption{beltcrest}{\def\logoversion{beltcrest}}
+%\DeclareOption{shieldcrest}{\def\logoversion{shieldcrest}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 \LoadClass[a4paper]{report}
@@ -35,7 +35,9 @@
 \def\degree#1{\gdef\@degree{#1}}
 % The name of your Oxford college (e.g. Christ Church, Pembroke)
 \def\college#1{\gdef\@college{#1}}
-
+\def\degrees#1{\gdef\@degrees{#1}}
+% The name of your Oxford college (e.g. Christ Church, Pembroke)
+\def\colleges#1{\gdef\@colleges{#1}}
 
 %
 % Setup choosen crest/logo
@@ -65,7 +67,7 @@
 %{
 % Latest Logo, Square version (the default!)
 % you need an oxlogo.eps or oxlogo.pdf file as appropriate
-%\def\logo{{\includegraphics[width=32mm]{oxlogo}}}
+\def\logo{{\includegraphics[width=32mm]{oxlogo}}}
 %}{}
 
 %
@@ -77,6 +79,7 @@
 \setlength{\textheight}{9.0in}
 \setlength{\textwidth}{6.0in}
 
+\def\crest{\hbox to\textwidth{\hss $\includegraphics{oxlogo.eps}$\hss}}
 %
 % Environments
 %
